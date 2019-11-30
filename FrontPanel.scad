@@ -1,11 +1,11 @@
-FrontPanel(140, 180, 10, 3);
+FrontPanel(140, 180, 10, 2);
 
 module FrontPanel(width, length, height, wall) {
     difference() {
         difference() {
             minkowski() {
                 cube([width, length, height]);
-                cylinder(r=2, h=height);
+                cylinder(r=wall - 1, h=1, $fn=20);
             }
             translate([wall, wall, wall]) cube([width - 2 * wall,length - 2 * wall, height * 2]);   
         }

@@ -1,5 +1,5 @@
 // Length of the rail
-length = 90; //[50 : 150]
+length = 80; //[50 : 150]
 
 // Height/Width of the rail
 height = 10; //[4 : 20]
