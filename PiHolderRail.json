@@ -1,0 +1,10 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "gap": "4",
+            "height": "10",
+            "length": "90"
+        }
+    },
+    "fileFormatVersion": "1"
+}
