@@ -7,13 +7,13 @@ HottubCorner(50, 30, total_height/4, 2);
 
 $fn=360;
 
-module HottubCorner(radius, side_width, height, thickness) {    
+module HottubCorner(radius, side_width, height, thickness, hole=true) {    
     Corner(radius, height, thickness);
     rotate(45) translate([radius -thickness - 10, 0, 0]) {
         ConnectorFemale(radius - thickness, height, 10, 20, 2);
     }
-    translate([0,  radius - thickness, 0]) rotate(90) Side(side_width, height, thickness);
-    translate([radius - thickness, -side_width, 0]) Side(side_width, height, thickness);
+    translate([0,  radius - thickness, 0]) rotate(90) Side(side_width, height, thickness, hole);
+    translate([radius - thickness, -side_width, 0]) Side(side_width, height, thickness, hole);
 }
 
 module Corner(radius, height, thickness) {
@@ -23,8 +23,15 @@ module Corner(radius, height, thickness) {
     }
 }
 
-module Side(width, height, thickness) {
-    cube([thickness, width, height]);
+module Side(width, height, thickness, hole) {
+    difference() {
+        cube([thickness, width, height]);
+        if (hole) {
+            translate([0, width/2, height/2]) rotate([0, 90, 0]) {
+                cylinder(r=2, h=thickness*2);
+            }
+        }
+    }
 }
 
 module ConnectorFemale(radius, height, box_depth, box_width, box_wall) {
