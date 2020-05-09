@@ -3,7 +3,7 @@ use <dotscad/pie.scad>;
 total_height = 425;
 
 HottubCorner(50, 30, total_height/4, 2);
-//ConnectorFemale(50, 100, 10, 10, 1);
+translate([-50, 0, 0]) ConnectorMale(50, 10, 20, 2);
 
 $fn=360;
 
@@ -40,6 +40,10 @@ module ConnectorFemale(radius, height, box_depth, box_width, box_wall) {
         cube([box_depth, box_width, height], center=true);
         cube([box_depth - 2*box_wall, box_width - 2*box_wall, height], center=true);
     }
+}
+
+module ConnectorMale(height, box_depth, box_width, box_wall) {
+    cube([box_depth - 2*box_wall, box_width - 2*box_wall, height], center=true);
 }
 
 module ConnectorBase(radius, height) {
