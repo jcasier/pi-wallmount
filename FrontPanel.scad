@@ -1,4 +1,5 @@
-FrontPanel(140, 200, 10, 2);
+//FrontPanel(140, 200, 10, 2);
+FrontPanel(160, 220, 10, 2);
 
 module FrontPanel(width, length, height, wall) {
     difference() {
